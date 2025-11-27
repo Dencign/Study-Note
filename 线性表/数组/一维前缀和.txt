@@ -1,0 +1,15 @@
+对于求数组某个区间[begin,end]中的和
+可以创建一个数组Profix[]存储前缀和
+
+//sum就是和
+for(int i=1;i<=size;i++){
+    sum += Arr[i]
+}
+于是也有
+    Sum[i]=Sum[i-1]+a[i]
+
+//用法举例
+求Sum = Arr(3,10) = Arr(1,10)-Arr(1,2)
+    =Profix[10]-Profix[2]
+
+就很好查就

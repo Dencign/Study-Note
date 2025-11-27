@@ -6,14 +6,16 @@ using namespace std;
 //设置优先级 这个是小的优先级高 重载(a<b)  
 struct cmp{
     bool operator() (int a,int b){
-        return a>b; //但是优先级(a>b) 所以小的优先级大
+        return a>b; //但是优先级(a>b) 所以小的优先级大 构造小顶堆
     }
 };
-//另一种设置优先级的办法 lambda表达式
+//另一种设置优先级的办法 lambda表达式 构造大顶堆
 auto cmp1=[](int a,int b){
     return a<b;
     };
-
+/*比较逻辑
+比较函数回答："第一个参数是否应该比第二个参数在堆的更低位置？" (优先级更低)
+如果 a < b 为 true，回答"是"，a 就在 b 的下面*/
 int main(){
     priority_queue<int> p;
     //默认大的优先级高
@@ -24,7 +26,7 @@ int main(){
     */
     q.push(2),q.push(5),q.push(1);
     cout << q.top()<<endl;
-
+    
     priority_queue<int,vector<int>,decltype(cmp1)> q1(cmp1);
     q1.push(1),q1.push(5),q1.push(2);
     cout << q1.top()<<endl;
