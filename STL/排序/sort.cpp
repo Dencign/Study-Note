@@ -4,6 +4,11 @@
 #include<algorithm>
 using namespace std;
 
+// true 不交换 false 交换 和 priority_queue 相反
+auto cmp = [](int a,int b){
+    return a < b;
+};//升序
+
 int main(){
     vector<int>arr={30,20,50,10,40,60};
     //sort(*开始地址，*结束地址后一位,排序方法cmp) 默认从小到大 内核是快排
