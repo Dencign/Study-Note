@@ -1,6 +1,7 @@
 //给定n个整数，问由这些整数通过“加法”操作，可以组成多少种数字？
 
 #include<iostream>
+#include<bitset>
 using namespace std;
 
 const int N = 5e3 + 10,M= 5e5 + 10; 
@@ -34,7 +35,7 @@ void solve(int n){
     }
     cout<<count;
 }
-*/
+
 void solve(int n){
     for(int i=1;i<=n;i++){
         cin >> a[i];
@@ -52,6 +53,19 @@ void solve(int n){
             count++;
     }
     cout<<count<<'\n';
+}
+*/
+bitset<M> dpp;
+//用bitset优化计算效率 O(n/w)w是机器位数
+void solve(int n){
+    for(int i=1;i<=n;i++){
+        cin >> a[i];
+    }   
+    dpp[0]=1;
+    for(int i = 1;i <= n;i++){
+            dpp |= (dpp<<a[i]);
+    }
+    cout<<dpp.count()<<'\n';
 }
 
 int main(){
