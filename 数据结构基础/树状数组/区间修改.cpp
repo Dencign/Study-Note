@@ -26,7 +26,7 @@ int main() {
 	cin >> n >> q;
 	for (int i = 1; i <= n; i++) cin >> a[i];
 	for (int i = 1; i <= n; i++) {
-		update(i, a[i]), update(i+1, -a[i]);
+		update(i, a[i] - a[i-1]);
 	}
 	int op;
 	while (q--) {
