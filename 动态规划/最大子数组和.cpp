@@ -5,7 +5,7 @@ const int M = 1e5;
 int a[M];
 int ma;
 
-/*用了存在性dp的思想
+/*
 int dpp[M];
 void solvepro(int n){
     for(int i=1;i<=n;i++)   cin>>a[i];
