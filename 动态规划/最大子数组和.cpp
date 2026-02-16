@@ -7,6 +7,7 @@ int ma;
 
 /*
 int dpp[M];
+dpp[M] 中的 dpp[i] 代表以i下标结尾的的数组的子数组最大和
 void solvepro(int n){
     for(int i=1;i<=n;i++)   cin>>a[i];
     ma=a[1];
