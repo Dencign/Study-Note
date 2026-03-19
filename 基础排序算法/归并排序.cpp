@@ -2,27 +2,32 @@
 #include <vector>
 using namespace std;
 
-void mergesort(int left, int right, vector<int> &arr, vector<int> &temp){
-    if(left >= right)   return;
-    int mid = left + (right - left) / 2;
-    //拆分
-    mergesort(left, mid, arr, temp);
-    mergesort(mid + 1, right, arr, temp);
-    //合并
-    int i = left, j = mid + 1, num = 0;
-    while (i <= mid && j <= right) {
-        if (arr[i] < arr[j]) 
-            temp[left+num] = arr[i++];
-        else if (arr[i] >= arr[j])
-            temp[left+num] = arr[j++];
-        num++;
-    } 
-    while (i <= mid)    temp[left+(num++)] = arr[i++];
-    while (j <= right)  temp[left+(num++)] = arr[j++];
+void mergesort(int left, int right,vector<int> &v,vector<int> &temp) {
+    if (left >= right) return;
+    int mid = (left + right) / 2;
 
-    for (int index = left; index < left + num; index++) 
-        arr[index] = temp[index];
+    mergesort(left, mid, v, temp);
+    mergesort(mid + 1, right, v, temp);
+
+    int i = left, j = mid + 1;
+    int index = left;
+    while (i <= mid && j <= right) {
+        if (v[i] <= v[j]) {
+            temp[index] = v[i++];
+        } else {
+            temp[index] = v[j++];
+        }
+        index++;
+    }
+
+    while (i <= mid) temp[index++] = v[i++];
+    while (j <= right) temp[index++] = v[j++];
+
+    for (int i = left; i <= right; i++) {
+        v[i] = temp[i];
+    }
 }
+
 
 int main() {
     vector<int> arr = {2,5,1,10,2,5,6,7,9};
