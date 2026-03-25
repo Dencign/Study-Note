@@ -6,6 +6,7 @@ const int N = 1e3 + 10;
 int a[N], b[N];
 
 int dp[N][N];
+// dp[i][j] 表示a以i结尾的子序列和b以j结尾的子序列的最长相同子序列
 
 int main() {
     int n, m; cin >> n >> m;

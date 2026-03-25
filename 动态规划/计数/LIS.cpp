@@ -4,7 +4,7 @@ using namespace std;
 
 const int N = 1e3 + 10;
 int a[N];
-int dp[N];
+int dp[N];// dp[i] 表示以i结尾的最长上升子序列
 int main()
 {
     int n; cin >> n;
